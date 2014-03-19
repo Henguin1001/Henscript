@@ -1,11 +1,26 @@
+# Henscript
+##It's finally here, sort of
+What is it? you may ask, I too ask that question. But the real question is how 
+can I make Javascript better, or worse. I present to you Henscript, defining a new
+way of using those things we use everyday.
+
 ##Use it
+### nodejs
 To use it just require the module. It will return an object that holds all sorts of new functions
-as well as modify some already existant objects.
+as well as modify some already existant objects. 
 ```js
 var henscript = require('henscript');
 ```
+
+### browser
+Just download the index.js file and import it as a js file, there will be a object called henscript floating around
+your global namespace
+```html
+<script type="text/javascript" src="henscript/index.js"></script>
+```
+
 ## henscript functions
-### henscript.if(condition,[callback]) <a name="henscript_if"></a>
+### <a name="henscript_if"></a> henscript.if(condition,[callback])
 When given a boolean that is true the callback is called
 ```js
 var henscript = require('henscript'), word = 'bar';
@@ -31,7 +46,7 @@ henscript.if( word == 'bar',
 	console.log('test3');
 });
 ```
-### henscript.switch(to_be_tested,[matches]) <a name="henscript_switch"></a>
+###<a name="henscript_switch"></a> henscript.switch(to_be_tested,[matches])
 Will test a given value to all the matches, upon finding the match it
 will call the corresponding callback. It also will return a ConditionResponse object 
 see [ConditionResponse](#ConditionResponse) 
@@ -51,7 +66,7 @@ henscript.switch('y',{
 });
 ```
 
-### henscript.while([condition_callback],[update]) <a name="henscript_while"></a>
+### <a name="henscript_while"></a> henscript.while([condition_callback],[update])
 While the condition_callback returns true the update call back will be called,
 this also will return a ConditionResponse see [ConditionResponse](#conditionResponse).
 ```js
@@ -68,7 +83,7 @@ henscript.while(function(){
 });
 ```
 
-### henscript.for([condition_callback],[update],[])
+### <a name="henscript_for"></a> henscript.for([condition_callback],[update],[])
 Very similar to  [henscript.while](#henscript_while) except with an extra callback for modifying
 any variable variable that needs to be. It's not super practical.
 ```js
@@ -84,7 +99,7 @@ henscript.for(function(){
 	}
 );
 ```
-### henscript.equals(a,b,[callback])
+### <a name="henscript_equals"></a> henscript.equals(a,b,[callback])
 Basically a shorter way of using [henscript.if](#henscript_if), if a==b than the
 callback is called, returns a [ConditionResponse](#ConditionResponse). 
 
@@ -97,15 +112,15 @@ henscript.equals(test,3,function(){
 });
 ```
 ### henscript.greater(a,b,[callback]);
-	just like above but with a &gt b
+just like above but with a > b
 ### henscript.greater_equal(a,b,[callback]);
-	just like above but with a &gt= b
+just like above but with a >= b
 ### henscript.less(a,b,[callback]);
-	just like above but with a &lt b
+just like above but with a < b
 ### henscript.less_equal(a,b,[callback]);
-	just like above but with a &lt b
+just like above but with a <= b
 
-## ConditionResponse functions <a name="ConditionResponse"></a>
+## <a name="ConditionResponse"></a> ConditionResponse functions
 ### condition.else(condition,[callback])
 when the previous operation that returned this ConditionResponse
 resulted in a false then the callback will be called
@@ -127,11 +142,3 @@ condition.elseif(true,function(){
 });
 ```
 
-
-## Object functions
-```js
-var henscript = require('henscript'), test = 4;
-test.equals(3,function(){
-	console.log('test');
-});
-```

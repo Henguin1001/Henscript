@@ -1,0 +1,14 @@
+{
+	"name":"henscript",
+	"version":"0.0.1",
+	"author":"Henry Troutman, henguin1001@gmail.com",
+	"description":"a new way to javascript",
+	"main":"index.js",
+	"keywords":[
+		"henscript"
+	],
+	"dependencies":{
+
+	}
+
+}

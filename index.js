@@ -1,12 +1,8 @@
-
-/////////////////////////////////////////////////////////////////////////////////////
-// Author: Henry Troutman, henguin1001@gmail.com, henrytroutman.com, hen.ventures  //
-// Henscript, a redefinition of javascript                                         //
-// Version 0.1                                                                     //
-// It may not be practical, but it is certainly existant                           //
-/////////////////////////////////////////////////////////////////////////////////////
-
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Author: Henry Troutman, henguin1001@gmail.com, henrytroutman.com, hen.ventures                               //
+// Henscript, a redefinition of javascript                                                                      //
+// It may not be practical, but it is certainly existant                                                        //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
