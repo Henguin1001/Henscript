@@ -172,5 +172,9 @@ ConditionResponse.prototype.else = function(callback) {
 	return this.value;
 }
 
-
-module.exports = new Henscript();
+// Check if browser or nodejs
+if(typeof exports === 'undefined'){
+	this['henscript'] = new Henscript();	
+} else {
+	module.exports = new Henscript();
+}
