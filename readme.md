@@ -6,6 +6,7 @@ way of using those things we use everyday.
 
 ##Use it
 ### nodejs
+install it via npm `npm install henscript`
 To use it just require the module. It will return an object that holds all sorts of new functions
 as well as modify some already existant objects. 
 ```js
