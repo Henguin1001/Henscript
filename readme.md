@@ -97,13 +97,13 @@ henscript.equals(test,3,function(){
 });
 ```
 ### henscript.greater(a,b,[callback]);
-just like above but with a&gtb
+	just like above but with a &gt b
 ### henscript.greater_equal(a,b,[callback]);
-just like above but with a&gt=b
+	just like above but with a &gt= b
 ### henscript.less(a,b,[callback]);
-just like above but with a&ltb
+	just like above but with a &lt b
 ### henscript.less_equal(a,b,[callback]);
-just like above but with a&ltb
+	just like above but with a &lt b
 
 ## ConditionResponse functions <a name="ConditionResponse"></a>
 ### condition.else(condition,[callback])
@@ -118,7 +118,7 @@ condition.else(function(){
 ```
 ### condition.elseif(condition,[callback])
 when the given condition is true and the previous operation that returned this ConditionResponse
-resulted in a false then the callback will be called
+resulted in a false then the callback will be called.
 ```js
 var condition = new ConditionResponse(false);
 condition.elseif(true,function(){
