@@ -84,7 +84,7 @@ henscript.while(function(){
 });
 ```
 
-### <a name="henscript_for"></a> henscript.for([condition_callback],[update],[])
+### <a name="henscript_for"></a> henscript.for([condition_callback],[update],[modify_callback])
 Very similar to  [henscript.while](#henscript_while) except with an extra callback for modifying
 any variable variable that needs to be. It's not super practical.
 ```js
