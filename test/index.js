@@ -53,10 +53,16 @@ henscript.for(function(){
 var test = 4;
 test.equals(3,function(){
 	console.log('test');
+}).else(function(){
+
 });
 
-henscript.equals(test,3,function(){
-	console.log('test is equal to 3');
-}).else(function(){
-	console.log('test is not equal to 3');
-});
+test = 3;
+test.add(4);
+
+console.log(test.plus(2));
+
+var test = true.condition(function(){
+	return "test";
+},4);
+console.log(test);
