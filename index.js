@@ -42,45 +42,57 @@ Object.prototype.equals = function(object, callback) {
 	if (callback && this == object) return callback();
 	else return this == object;
 };
+
 /**
- * gets whether an object is greater than the contained object
+ * gets whether an object is not equal to the contained object
  * @param  {object}   object   the object to compare to
  * @param  {Function} callback when it is true this is called
  * @return {boolean}            the outcome of the comparison
  */
-Object.prototype.greater = function(object, callback) {
-	if (callback && this > object) return callback();
-	else return this > object;
+Object.prototype.equals = function(object, callback) {
+	if (callback && this != object) return callback();
+	else return this != object;
+};
+
+/**
+ * gets whether an number is greater than the contained number
+ * @param  {number}   number   the number to compare to
+ * @param  {Function} callback when it is true this is called
+ * @return {boolean}            the outcome of the comparison
+ */
+Number.prototype.greater = function(number, callback) {
+	if (callback && this > number) return callback();
+	else return this > number;
 };
 /**
- * gets whether an object is greater than or equal to the contained object
- * @param  {object}   object   the object to compare to
+ * gets whether an number is greater than or equal to the contained number
+ * @param  {number}   number   the number to compare to
  * @param  {Function} callback when it is true this is called
  * @return {boolean}            the outcome of the comparison
  */
-Object.prototype.greater_equal = function(object, callback) {
-	if (callback && this >= object) return callback();
-	else return this >= object;
+Number.prototype.greater_equal = function(number, callback) {
+	if (callback && this >= number) return callback();
+	else return this >= number;
 };
 /**
- * gets whether an object is less than the contained object
- * @param  {object}   object   the object to compare to
+ * gets whether an number is less than the contained number
+ * @param  {number}   number   the number to compare to
  * @param  {Function} callback when it is true this is called
  * @return {boolean}            the outcome of the comparison
  */
-Object.prototype.less = function(object, callback) {
-	if (callback && this < object) return callback();
-	else return this < object;
+Number.prototype.less = function(number, callback) {
+	if (callback && this < number) return callback();
+	else return this < number;
 };
 /**
- * gets whether an object is less than or equal to the contained object
- * @param  {object}   object   the object to compare to
+ * gets whether an number is less than or equal to the contained number
+ * @param  {number}   number   the number to compare to
  * @param  {Function} callback when it is true this is called
  * @return {boolean}            the outcome of the comparison
  */
-Object.prototype.less_equal = function(object, callback) {
-	if (callback && this <= object) return callback();
-	else return this <= object;
+Number.prototype.less_equal = function(number, callback) {
+	if (callback && this <= number) return callback();
+	else return this <= number;
 };
 
 
