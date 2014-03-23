@@ -43,7 +43,8 @@ Object.prototype.equals = function(obj, callback) {
 Object.prototype.equal = Object.prototype.equals;
 
 Object.prototype.not_equal = function(obj, callback) {
-	if (callback && this != obj) callback();
+	if(!callback) return this!=obj; 
+	else if (this != obj) callback();
 	return new ConditionResponse(this != obj);
 };
 
@@ -63,7 +64,9 @@ Boolean.prototype.not = function(){
 };
 Boolean.prototype.bang = Boolean.prototype.not;
 Boolean.prototype.condition = function(callback_or_value_true, callback_or_value_false) {
-	if (this) {
+	// have to have equals since it would normally return true
+	// since it is a non-null value
+	if (this==true) {
 		if (typeof callback_or_value_true == 'function') return callback_or_value_true();
 		else return callback_or_value_true;
 	} else {
@@ -205,16 +208,19 @@ Henscript.prototype.for = function(condition_loop,callback_loop,callback_sequenc
  * An object that holds all sorts of functions usefull after a condition has been tested
  * @param {boolean} condition the value of the previous operation
  */
+
 function ConditionResponse(condition) {
 	this.value = condition;
 }
 ConditionResponse.prototype.elseif = function(condition,callback){
 	if(!this.value) return Henscript.prototype.if(condition, callback);
+	else return new ConditionResponse(this.value);
 };
 ConditionResponse.prototype.else = function(callback) {
 	if(!this.value && callback) callback();
 	return this.value;
 }
+Henscript.prototype.ConditionResponse = ConditionResponse;
 
 // Check if browser or nodejs
 if(typeof exports === 'undefined'){
