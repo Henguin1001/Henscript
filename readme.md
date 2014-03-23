@@ -228,7 +228,7 @@ b.condition(function(){
 * Number.prototype.squared(num_2)
 * Number.prototype.negate(num_2)
 <br>
-Pretty well known things, however heres a 
+Pretty well known things, however here's a 
 [resource](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Arithmetic_operators),
 just your basic math operators, you may notice there are no operators that do assignment like `+=` where it will add then
 assign the value back to the caller.
