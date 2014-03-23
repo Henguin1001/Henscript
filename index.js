@@ -6,11 +6,14 @@
 
 
 
-////////////////////////////////////////////////////////////////
-// Here are all the global redefinitions (may cause conflict) //
-////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+// Here are all the global definitions (may cause conflict) //
+//////////////////////////////////////////////////////////////
 
-// Add a map function to an object
+////////////////////////
+// Object definitions //
+////////////////////////
+
 Object.prototype.map = function(callback){
 	var outcome = {}, key;
 	for(key in this) {
@@ -23,7 +26,6 @@ Object.prototype.map = function(callback){
 	return outcome;
 };
 
-// get the number of properties/fields in an object
 Object.prototype.size = function() {
 	var size = 0,
 		key;
@@ -32,16 +34,50 @@ Object.prototype.size = function() {
 	}
 	return size;
 };
-/**
- * gets whether an object is equal to the contained object
- * @param  {object}   object   the object to compare to
- * @param  {Function} callback when it is true this is called
- * @return {boolean}            the outcome of the comparison
- */
-Object.prototype.equals = function(object, callback) {
-	if (callback && this == object) return callback();
-	else return this == object;
+
+Object.prototype.equals = function(obj, callback) {
+	if(!callback) return this==obj; 
+	else if (this == obj) callback();
+	return new ConditionResponse(this == obj);
 };
+Object.prototype.equal = Object.prototype.equals;
+
+Object.prototype.not_equal = function(obj, callback) {
+	if(!callback) return this!=obj; 
+	else if (this != obj) callback();
+	return new ConditionResponse(this != obj);
+};
+
+
+/////////////////////////
+// Boolean definitions //
+/////////////////////////
+
+Boolean.prototype.and = function(that){
+	return this && that;
+};
+Boolean.prototype.or = function(that){
+	return this || that;
+};
+Boolean.prototype.not = function(){
+	return !this;
+};
+Boolean.prototype.bang = Boolean.prototype.not;
+Boolean.prototype.condition = function(callback_or_value_true, callback_or_value_false) {
+	// have to have equals since it would normally return true
+	// since it is a non-null value
+	if (this==true) {
+		if (typeof callback_or_value_true == 'function') return callback_or_value_true();
+		else return callback_or_value_true;
+	} else {
+		if (typeof callback_or_value_false == 'function') return callback_or_value_false();
+		else return callback_or_value_false;
+	}
+};
+
+////////////////////////
+// Number definitions //
+////////////////////////
 
 /**
  * gets whether an object is not equal to the contained object
@@ -49,9 +85,9 @@ Object.prototype.equals = function(object, callback) {
  * @param  {Function} callback when it is true this is called
  * @return {boolean}            the outcome of the comparison
  */
-Object.prototype.equals = function(object, callback) {
-	if (callback && this != object) return callback();
-	else return this != object;
+Number.prototype.greater = function(number, callback) {
+	if (callback && this > obj) callback();
+	return new ConditionResponse(this > obj);
 };
 
 /**
@@ -60,9 +96,9 @@ Object.prototype.equals = function(object, callback) {
  * @param  {Function} callback when it is true this is called
  * @return {boolean}            the outcome of the comparison
  */
-Number.prototype.greater = function(number, callback) {
-	if (callback && this > number) return callback();
-	else return this > number;
+Number.prototype.greater_equal = function(number, callback) {
+	if (callback && this >= obj) callback();
+	return new ConditionResponse(this >= obj);
 };
 /**
  * gets whether an number is greater than or equal to the contained number
@@ -70,9 +106,9 @@ Number.prototype.greater = function(number, callback) {
  * @param  {Function} callback when it is true this is called
  * @return {boolean}            the outcome of the comparison
  */
-Number.prototype.greater_equal = function(number, callback) {
-	if (callback && this >= number) return callback();
-	else return this >= number;
+Number.prototype.less = function(number, callback) {
+	if (callback && this < obj) callback();
+	return new ConditionResponse(this < obj);
 };
 /**
  * gets whether an number is less than the contained number
@@ -91,9 +127,46 @@ Number.prototype.less = function(number, callback) {
  * @return {boolean}            the outcome of the comparison
  */
 Number.prototype.less_equal = function(number, callback) {
-	if (callback && this <= number) return callback();
-	else return this <= number;
+	if (callback && this <= obj) callback();
+	return new ConditionResponse(this <= obj);
 };
+
+Number.prototype.add = function(b){
+	return (this+b);
+};
+Number.prototype.plus = Number.prototype.add;
+
+Number.prototype.subtract = function(b){
+	return (this-b);
+};
+Number.prototype.minus = Number.prototype.subtract;
+
+Number.prototype.multiply = function(b){
+	return (this*b);
+};
+Number.prototype.times = Number.prototype.multiply;
+
+Number.prototype.divide = function(b){
+	return (this/b);
+};
+Number.prototype.over = Number.prototype.divide;
+
+Number.prototype.modulus = function(b){
+	return (this%b);
+}
+Number.prototype.mod = Number.prototype.modulus;
+
+Number.prototype.power = function(b){
+	return Math.pow(this,b);
+}
+Number.prototype.squared = function(){
+	return (this*this);
+};
+Number.prototype.negate = function(){
+	return -this;
+};
+
+
 
 
 /////////////////////////////////////////////////////////////
@@ -140,45 +213,25 @@ Henscript.prototype.for = function(condition_loop,callback_loop,callback_sequenc
 	return new ConditionResponse(true);
 }
 
-// Very similar to the ones attatched to Object,
-// However they will return a condition response
 
-Henscript.prototype.equals = function(a, b, callback) {
-	if (callback && a == b) callback();
-	return new ConditionResponse(a == b);
-};
-Henscript.prototype.greater = function(a, b, callback) {
-	if (callback && a > b) callback();
-	return new ConditionResponse(a > b);
-};
-Henscript.prototype.greater_equal = function(a, b, callback) {
-	if (callback && a >= b) callback();
-	return new ConditionResponse(a >= b);
-};
-Henscript.prototype.less = function(a, b, callback) {
-	if (callback && a < b) callback();
-	return new ConditionResponse(a < b);
-};
-Henscript.prototype.less_equal = function(a, b, callback) {
-	if (callback && a <= b) callback();
-	return new ConditionResponse(a <= b);
-};
 
 /**
  * An object that holds all sorts of functions usefull after a condition has been tested
  * @param {boolean} condition the value of the previous operation
  */
+
 function ConditionResponse(condition) {
 	this.value = condition;
 }
 ConditionResponse.prototype.elseif = function(condition,callback){
 	if(!this.value) return Henscript.prototype.if(condition, callback);
+	else return new ConditionResponse(this.value);
 };
 ConditionResponse.prototype.else = function(callback) {
-
-	if(!this.value) callback();
+	if(!this.value && callback) callback();
 	return this.value;
 }
+Henscript.prototype.ConditionResponse = ConditionResponse;
 
 // Check if browser or nodejs
 if(typeof exports === 'undefined'){
