@@ -132,7 +132,7 @@ Will return the number of fields in an object
 var foo = {foo:"bar",barbar:"foofoo"};
 console.log(foo.size()); // 2
 ```
-### <a name="Object_equal"></a> Object.prototype.equal(obj_b,[callback=]) or Object.prototype.equals(obj_b,[callback=])
+### <a name="Object_equal"></a> Object.prototype.equal(obj_b,[callback=]) / Object.prototype.equals(obj_b,[callback=])
 Will test whether the given object (obj_b) is equal to the current object, when called without the callback 
 parameter it will return a plain boolean, however when passed a callback it will call it if the two are equal
 and in turn return a [ConditionResponse](#conditionResponse) to which you could tag an else.
