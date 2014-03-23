@@ -21,14 +21,14 @@ your global namespace
 ```
 
 ## Table of Contents
-[henscript functions](#henscript) <br>
+[henscript functions](#henscript_functions) <br>
 [Object functions](#Object) <br>
 [Boolean functions](#Boolean) <br>
 [Number functions](#Number) <br>
 [ConditionResponse functions](#ConditionResponse) <br>
 
 
-## <a name="henscript"></a> henscript functions 
+## <a name="henscript_functions"></a> henscript functions 
 ### <a name="henscript_if"></a> henscript.if(condition,[callback])
 When given a boolean that is true the callback is called
 ```js
