@@ -181,6 +181,7 @@ a.not_equal(b,function(){
 * Boolean.prototype.and(bool_2)
 * Boolean.prototype.or(bool_2)
 * Boolean.prototype.not(bool_2) or Boolean.prototype.bang(bool_2)
+<br>
 If you are not familiar with these checkout [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Logical_operators). Each will return the 
 resulting boolean which will allow for chaining these operators.
 ```js
@@ -226,7 +227,7 @@ b.condition(function(){
 * Number.prototype.power(num_2)
 * Number.prototype.squared(num_2)
 * Number.prototype.negate(num_2)
-
+<br>
 Pretty well known things, however heres a 
 [resource](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Arithmetic_operators),
 just your basic math operators, you may notice there are no operators that do assignment like `+=` where it will add then
@@ -249,7 +250,7 @@ d = negate(d); // d is now -5
 * Number.prototype.greater_equal(num_2,[callback=])
 * Number.prototype.less(num_2,[callback=])
 * Number.prototype.less_equal(num_2,[callback=])
-
+<br>
 Just as [Object.prototype.equals](#Object_equal) works just with 
 [operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Comparison_operators) that apply to numbers
 or quantities
