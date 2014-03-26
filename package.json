@@ -1,6 +1,6 @@
 {
 	"name":"henscript",
-	"version":"0.0.1",
+	"version":"0.0.2",
 	"author":"Henry Troutman, henguin1001@gmail.com",
 	"description":"a new way to javascript",
 	"main":"index.js",
