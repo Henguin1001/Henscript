@@ -1,10 +1,7 @@
 # Henscript
-##It's finally here, sort of
-What is it? you may ask, I too ask that question. But the real question is how 
-can I make Javascript better, or worse. I present to you Henscript, defining a new
-way of using those things we use everyday.
+I present to you Henscript
 
-##Use it
+## Use it
 ### nodejs
 install it via npm `npm install henscript`
 To use it just require the module. It will return an object that holds all sorts of new functions
@@ -55,7 +52,7 @@ henscript.if( word == 'bar',
 	console.log('test3');
 });
 ```
-###<a name="henscript_switch"></a> henscript.switch(to_be_tested,[matches])
+### <a name="henscript_switch"></a> henscript.switch(to_be_tested,[matches])
 Will test a given value to all the matches, upon finding the match it
 will call the corresponding callback. It also will return a ConditionResponse object 
 see [ConditionResponse](#ConditionResponse) 
